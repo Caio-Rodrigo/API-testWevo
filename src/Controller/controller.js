@@ -44,8 +44,19 @@ const create = async (req, res) => {
 	res.status(201).send(novoItem);
 };
 
+const update = async (req, res) => {
+	const id = req.params.id;
+	const itemEditar = req.body;
+
+	const DadosEditados = await Service.update(id, itemEditar);
+
+	res.send(DadosEditados);
+};
+
 module.exports = {
 	getAll,
-	create,
 	getById,
+	create,
+	update,
+
 };

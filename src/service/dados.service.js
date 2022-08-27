@@ -9,10 +9,16 @@ const getById = async (id) => await Dados.findById(id);
 
 const create = async (novoItem) => await Dados.create(novoItem);
 
+const update = async (id, editaDados) =>
+	await Dados.findByIdAndUpdate(id, editaDados).setOptions({
+		returnOriginal: false,
+	});
+
 module.exports = {
 	verificaCpf,
 	verificaNome,
 	getAll,
 	create,
 	getById,
+	update,
 };

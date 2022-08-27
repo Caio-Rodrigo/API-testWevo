@@ -5,5 +5,6 @@ const { validObjectBody, validId } = require('../middlewares/middlewares');
 routes.get('/', Dados.getAll);
 routes.get('/:id', validId, Dados.getById);
 routes.post('/create', validObjectBody, Dados.create);
+routes.put('/update/:id', validId, Dados.update);
 
 module.exports = routes;
