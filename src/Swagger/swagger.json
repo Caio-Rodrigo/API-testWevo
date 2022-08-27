@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url":"https://api-wevo.onrender.com/api/",
+      "url":"https://api-wevo.onrender.com",
       "description":"Url Deploy Render"
     },
     {
