@@ -56,16 +56,12 @@
                 "$ref": "#components/schemas/Dados"
               },
               "example": {
-                "Novos Dados": {
-                  "value": {
                     "nome": "karina",
                     "cpf": "79177899933",
                     "email": "ka@gmail.com",
                     "tel": "189337559899",
                     "sexo": "Masculino",
                     "dataNacimento": "1997-05-19"
-                  }
-                }
               }
             }
           }
@@ -135,16 +131,12 @@
                 "$ref": "#/components/schemas/Dados"
               },
               "example": {
-                "Dados para edição": {
-                  "value": {
                     "nome": "karina",
                     "cpf": 79177899933,
                     "email": "ka@gmail.com",
                     "tel": 189337559899,
                     "sexo": "Feminino",
                     "dataNacimento": "1997-10-25T00:00:00.000Z"
-                  }
-                }
               }
             }
           }
