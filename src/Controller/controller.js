@@ -12,6 +12,13 @@ const getAll = async (req, res) => {
 	}
 };
 
+const getById = async (req, res) => {
+	const id = req.params.id;
+	const item = await Service.getById(id);
+
+	res.send(item);
+};
+
 const create = async (req, res) => {
 	const item = req.body;
 	const { cpf, nome } = req.body;
@@ -30,8 +37,8 @@ const create = async (req, res) => {
 		console.log(err.message);
 	});
 
-	if(!novoItem) {
-return res.status(500).send({error: "Erro ao criar um novo usuario"})
+	if (!novoItem) {
+		return res.status(500).send({ error: 'Erro ao criar um novo usuario' });
 	}
 
 	res.status(201).send(novoItem);
@@ -40,4 +47,5 @@ return res.status(500).send({error: "Erro ao criar um novo usuario"})
 module.exports = {
 	getAll,
 	create,
+	getById,
 };
