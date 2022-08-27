@@ -1,0 +1,23 @@
+{
+  "name": "Wevo",
+  "version": "1.0.0",
+  "description": "test pratico wevo",
+  "main": "index.js",
+  "author": "Caio Rodrigo silva",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19",
+    "prettier": "2.7.1"
+  }
+}
