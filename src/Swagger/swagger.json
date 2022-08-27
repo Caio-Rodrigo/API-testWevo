@@ -1,0 +1,219 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "test Wevo",
+    "description": "test dados",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3005",
+      "description": "URL teste local"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Lista todos os dados contidos",
+        "desciption": "Rota responsavel por listar todos os dados cadastrados",
+        "tags": [
+          "Dados"
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista vazia"
+          },
+          "500": {
+            "desciption": "Error no servicor"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "Arrey",
+              "$ref": "#components/schemas/Dados"
+            }
+          }
+        }
+      }
+    },
+    "/create": {
+      "post": {
+        "summary": "Criar novos dados",
+        "description": "Rota responsavel por criar novos dados",
+        "tags": [
+          "Dados"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#components/schemas/Dados"
+              },
+              "example": {
+                "Novos Dados": {
+                  "value": {
+                    "nome": "karina",
+                    "cpf": "79177899933",
+                    "email": "ka@gmail.com",
+                    "tel": "189337559899",
+                    "sexo": "Masculino",
+                    "dataNacimento": "1997-05-19"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Nome ou CPF Ja cadastrados"
+          },
+          "201": {
+            "description": "Novos dados cadastrados com sucesso!"
+          }
+        }
+      }
+    },
+    "/{id}": {
+      "get": {
+        "summary": "Busca por ID",
+        "desciption": "Retorna um item pelo ID",
+        "tags": [
+          "Dados"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID para pesquisa",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "desciption": "Por favor, entregue um ID valido!"
+          },
+          "200": {
+            "description": "Sucesso!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "Object",
+                  "$ref": "#/components/schemas/Dados"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/update/{id}": {
+      "put": {
+        "summary": "Editar Dados",
+        "desciption": "Rota responsavel por editar os dados",
+        "tags": [
+          "Dados"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID para edição",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dados"
+              },
+              "example": {
+                "Dados para edição": {
+                  "value": {
+                    "nome": "karina",
+                    "cpf": 79177899933,
+                    "email": "ka@gmail.com",
+                    "tel": 189337559899,
+                    "sexo": "Feminino",
+                    "dataNacimento": "1997-10-25T00:00:00.000Z"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "ID invalido"
+          },
+          "200": {
+            "description": "Dados para edição",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "Object",
+                  "$ref": "#/components/schemas/Dados"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete/{id}": {
+      "delete": {
+        "summary": "Deletar dados",
+        "description": "Rota responsavel por Deletar dados pelo ID",
+        "tags": [
+          "Dados"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID para exclusão dos dados",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "ID invalido"
+          },
+          "200": {
+            "description": "Dados deletados com sucesso!"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Dados": {
+        "type": "Object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "cpf": {
+            "type": "number"
+          },
+          "email": {
+            "type": "string"
+          },
+          "tel": {
+            "type": "number"
+          },
+          "sexo": {
+            "type": "string"
+          },
+          "dataNacimento": {
+            "type": "date"
+          }
+        }
+      }
+    }
+  }
+}

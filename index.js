@@ -1,8 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const connectToDatabase = require('./src/Database/database')
+const connectToDatabase = require('./src/Database/database');
 const dados = require('./src/routes/dados.routes');
+const swaggerRouter = require('./src/Swagger/swagger.routes');
 
 const port = process.env.PORT || 3005;
 
@@ -13,7 +14,8 @@ app.use(express.json());
 
 connectToDatabase();
 
-app.use('/', dados)
+app.use('/api', swaggerRouter);
+app.use('/', dados);
 
 /* const dados = [{
   id:1,
@@ -42,7 +44,6 @@ DataNascimento:'11/09/1990'
 }
 ]
  */
-
 
 app.listen(port, () =>
 	console.log(`Server listening on http://localhost:${port}`),
