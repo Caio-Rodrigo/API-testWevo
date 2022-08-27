@@ -53,10 +53,16 @@ const update = async (req, res) => {
 	res.send(DadosEditados);
 };
 
+const deleteDados = async (req, res) => {
+	const id = req.params.id;
+	 await Service.deleteDados(id);
+	res.send({ message: 'Dados deletados com sucesso!' });
+};
+
 module.exports = {
 	getAll,
 	getById,
 	create,
 	update,
-
+	deleteDados,
 };

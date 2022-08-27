@@ -6,5 +6,6 @@ routes.get('/', Dados.getAll);
 routes.get('/:id', validId, Dados.getById);
 routes.post('/create', validObjectBody, Dados.create);
 routes.put('/update/:id', validId, Dados.update);
+routes.delete('/:id', validId, Dados.deleteDados);
 
 module.exports = routes;

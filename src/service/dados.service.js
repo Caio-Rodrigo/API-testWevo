@@ -14,6 +14,8 @@ const update = async (id, editaDados) =>
 		returnOriginal: false,
 	});
 
+const deleteDados = async (id) => await Dados.findByIdAndDelete(id);
+
 module.exports = {
 	verificaCpf,
 	verificaNome,
@@ -21,4 +23,5 @@ module.exports = {
 	create,
 	getById,
 	update,
+	deleteDados,
 };
