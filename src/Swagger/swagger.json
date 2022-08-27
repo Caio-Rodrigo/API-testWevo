@@ -7,6 +7,10 @@
   },
   "servers": [
     {
+      "url":"https://api-wevo.onrender.com/api/",
+      "description":"Url Deploy Render"
+    },
+    {
       "url": "http://localhost:3005",
       "description": "URL teste local"
     }
